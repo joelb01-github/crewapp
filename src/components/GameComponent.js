@@ -21,10 +21,10 @@ class Game extends Component {
               <CardSubtitle></CardSubtitle>
               <CardText>This is the question.</CardText>
               <div className="row justify-content-center">
-                <Button outline color="secondary">Choice 1</Button>
-                <Button outline color="secondary">Choice 2</Button>
-                <Button outline color="secondary">Choice 3</Button>
-                <Button outline color="secondary">Choice 4</Button>
+                <Button outline block color="secondary">Choice 1</Button>
+                <Button outline block color="secondary">Choice 2</Button>
+                <Button outline block color="secondary">Choice 3</Button>
+                <Button outline block color="secondary">Choice 4</Button>
               </div>
             </CardBody>
           </Card>
