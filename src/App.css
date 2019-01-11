@@ -1,4 +1,9 @@
 .navbar-dark {
-  background-color: lightgreen;
+  
 }
 
+.footer{
+  background-color: lightgray;
+  margin:0px auto;
+  padding: 20px 0px 20px 0px;
+}
