@@ -4,6 +4,7 @@ import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './HomeComponent';
 import Contact from './ContactComponent';
+import Game from './GameComponent';
 import Hall from './HallComponent';
 
 class Main extends Component {
@@ -16,6 +17,7 @@ class Main extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/hall" component={Hall} />
+            <Route exact path="/game" component={Game} />
             <Redirect to="/" />
           </Switch>
         </div>
