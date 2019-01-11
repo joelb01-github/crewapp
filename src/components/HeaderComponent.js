@@ -21,14 +21,12 @@ class Header extends Component {
     return(
       <Navbar color="light" light expand="md">
         <div className="container">
-          <NavbarBrand className="mr-auto" href="/">
-            <img src="https://firebasestorage.googleapis.com/v0/b/confusionserver-956e4.appspot.com/o/images%2FlogoENG1.png?alt=media&token=332ea851-f521-4b3d-bfd6-6d7987733926" height="41" width="41" alt="Chez Joel" />
-          </NavbarBrand>
+          <NavbarBrand className="mr-auto" href="/">The Crew Game</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink className="nav-link" to="/home">
+                <NavLink className="nav-link" to="/">
                   <span className="fa fa-home fa-lg"></span> Home
                 </NavLink>
               </NavItem>
