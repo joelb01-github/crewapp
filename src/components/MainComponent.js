@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './HomeComponent';
@@ -12,9 +12,12 @@ class Main extends Component {
       <div>
         <Header />
         <div>
-          <Route path="/home" component={Home} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/hall" component={Hall} />
+          <Switch>
+            <Route path="/" component={Home} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/hall" component={Hall} />
+            <Redirect to="/" />
+          </Switch>
         </div>
         <Footer />
       </div>
