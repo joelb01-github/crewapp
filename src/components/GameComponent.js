@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
 import { questions } from '../assets/questions';
+import Endgame from './EndgameComponent';
 
 class Game extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
+      isEnd: false,
       counter: 0,
       points: 0
     };
@@ -14,9 +16,25 @@ class Game extends Component {
     this.toggleNextQuestion = this.toggleNextQuestion.bind(this);
   }
 
-  toggleNextQuestion() {
-    if (this.state.counter === 2) {
-      // launch end screen
+  toggleNextQuestion(answer) {
+    // check if answer is correct
+    if (answer === questions[this.state.counter].solution){
+      this.setState({
+        points: this.state.points + 1
+      });
+    }
+
+    else {
+      this.setState({
+        points: this.state.points - 0.5
+      });
+    }
+
+    // change screen
+    if (this.state.counter === questions.length - 1) {
+      this.setState({
+        isEnd: true
+      });
     }
     else {
       this.setState({
@@ -27,15 +45,17 @@ class Game extends Component {
 
   render() {
     const answers = questions[this.state.counter].answers;
+    const question = questions[this.state.counter].question;
+    const image = questions[this.state.counter].src;
 
     const QuestionCard = () => {
       return(
         <Card className="salvicard">
-          <CardImg top className="img-fluid" src={questions[this.state.counter].src} alt="Card image" />
+          <CardImg top className="img-fluid" src={image} alt="Card image" />
           <CardBody>
-            <CardTitle>C'etait ou?</CardTitle>
+            <CardTitle>Question {this.state.counter+1}</CardTitle>
             <CardSubtitle></CardSubtitle>
-            <CardText>This is the question...</CardText>
+            <CardText>{question}</CardText>
             <div className="row justify-content-center">
               {answersCard}
             </div>
@@ -47,19 +67,30 @@ class Game extends Component {
     const answersCard = answers.map((answer) => {
       return (
         <Button outline block color="secondary" 
-        onClick={this.toggleNextQuestion}>
+        onClick={() => {this.toggleNextQuestion(answer)}}>
           {answer}
         </Button>
       );
     });
     
-    return (
-      <div className="container fluid">
-        <div className="row justify-content-center">
-          <QuestionCard />
+    if (!this.state.isEnd) {
+      return (
+        <div className="container fluid">
+          <div className="row justify-content-center">
+            <QuestionCard />
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
+    else {
+      return (
+        <div className="container fluid">
+          <div className="row justify-content-center">
+            <Endgame points={this.state.points} />
+          </div>
+        </div>
+      );
+    }
   }
 }
 

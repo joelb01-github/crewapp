@@ -35,11 +35,6 @@ class Header extends Component {
                   <span className="fa fa-trophy fa-lg"></span> Hall of Fame
                 </NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink className="nav-link" to="/contact">
-                  <span className="fa fa-info fa-lg"></span> Contact
-                </NavLink>
-              </NavItem>
             </Nav>
           </Collapse>
         </div>

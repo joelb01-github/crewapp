@@ -2,7 +2,7 @@ import React from 'react';
 
 const Hall = () => (
   <div>
-    Hello Hall
+    Coming soon...
   </div>
 );
 
