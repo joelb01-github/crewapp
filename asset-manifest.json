@@ -1,7 +1,7 @@
 {
   "main.css": "/crewapp/static/css/main.96a622b8.chunk.css",
-  "main.js": "/crewapp/static/js/main.4910387e.chunk.js",
-  "main.js.map": "/crewapp/static/js/main.4910387e.chunk.js.map",
+  "main.js": "/crewapp/static/js/main.12df0a31.chunk.js",
+  "main.js.map": "/crewapp/static/js/main.12df0a31.chunk.js.map",
   "static/css/1.ab310c56.chunk.css": "/crewapp/static/css/1.ab310c56.chunk.css",
   "static/js/1.668ba351.chunk.js": "/crewapp/static/js/1.668ba351.chunk.js",
   "static/js/1.668ba351.chunk.js.map": "/crewapp/static/js/1.668ba351.chunk.js.map",
@@ -11,6 +11,6 @@
   "static/css/main.96a622b8.chunk.css.map": "/crewapp/static/css/main.96a622b8.chunk.css.map",
   "static/css/1.ab310c56.chunk.css.map": "/crewapp/static/css/1.ab310c56.chunk.css.map",
   "index.html": "/crewapp/index.html",
-  "precache-manifest.179a1433dfcd3564f5dfb09c255a1347.js": "/crewapp/precache-manifest.179a1433dfcd3564f5dfb09c255a1347.js",
+  "precache-manifest.f0e387e252175050b5ba536914d24800.js": "/crewapp/precache-manifest.f0e387e252175050b5ba536914d24800.js",
   "service-worker.js": "/crewapp/service-worker.js"
 }
