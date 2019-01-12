@@ -8,7 +8,7 @@ export const questions = [
       "Tignes",
       "Aime la pute"
     ],
-    solution: "Morillon"
+    solution: "Tignes"
   },
   {
     src: "https://firebasestorage.googleapis.com/v0/b/confusionserver-956e4.appspot.com/o/images%2Fcrewapp%2F2008barca6.jpg?alt=media&token=93538a16-1982-438f-b742-cba317b69fbd",
