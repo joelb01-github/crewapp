@@ -94,7 +94,7 @@ export const questions = [
       "La Plagne",
       "Aime la pute",
       "Morillon",
-      "Saint-Martin la belle"
+      "Tignes"
     ],
     solution: "Morillon"
   },
