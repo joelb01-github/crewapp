@@ -1,8 +1,10 @@
 import React from 'react';
+import Hall from './HallComponent';
 
 const Endgame = (props) => (
   <div>
-    Your score is: {props.points}
+    <p>Your score is: {props.points}</p>
+    <Hall />
   </div>
 );
 
