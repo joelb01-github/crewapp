@@ -1,16 +1,16 @@
 {
   "main.css": "/crewapp/static/css/main.96a622b8.chunk.css",
-  "main.js": "/crewapp/static/js/main.3b3216a6.chunk.js",
-  "main.js.map": "/crewapp/static/js/main.3b3216a6.chunk.js.map",
+  "main.js": "/crewapp/static/js/main.8dd8ffae.chunk.js",
+  "main.js.map": "/crewapp/static/js/main.8dd8ffae.chunk.js.map",
   "static/css/1.ab310c56.chunk.css": "/crewapp/static/css/1.ab310c56.chunk.css",
   "static/js/1.668ba351.chunk.js": "/crewapp/static/js/1.668ba351.chunk.js",
   "static/js/1.668ba351.chunk.js.map": "/crewapp/static/js/1.668ba351.chunk.js.map",
   "runtime~main.js": "/crewapp/static/js/runtime~main.70e1f85a.js",
   "runtime~main.js.map": "/crewapp/static/js/runtime~main.70e1f85a.js.map",
   "static/media/font-awesome.min.css": "/crewapp/static/media/fontawesome-webfont.fee66e71.woff",
-  "static/css/1.ab310c56.chunk.css.map": "/crewapp/static/css/1.ab310c56.chunk.css.map",
   "static/css/main.96a622b8.chunk.css.map": "/crewapp/static/css/main.96a622b8.chunk.css.map",
+  "static/css/1.ab310c56.chunk.css.map": "/crewapp/static/css/1.ab310c56.chunk.css.map",
   "index.html": "/crewapp/index.html",
-  "precache-manifest.9d5c992bf4e2335ead2ccba7d4b978a6.js": "/crewapp/precache-manifest.9d5c992bf4e2335ead2ccba7d4b978a6.js",
+  "precache-manifest.6f1c3f3ca599f1f99bd0d8a5e7e66ad9.js": "/crewapp/precache-manifest.6f1c3f3ca599f1f99bd0d8a5e7e66ad9.js",
   "service-worker.js": "/crewapp/service-worker.js"
 }
