@@ -8,8 +8,8 @@
   "runtime~main.js": "/crewapp/static/js/runtime~main.70e1f85a.js",
   "runtime~main.js.map": "/crewapp/static/js/runtime~main.70e1f85a.js.map",
   "static/media/font-awesome.min.css": "/crewapp/static/media/fontawesome-webfont.fee66e71.woff",
-  "static/css/main.96a622b8.chunk.css.map": "/crewapp/static/css/main.96a622b8.chunk.css.map",
   "static/css/1.ab310c56.chunk.css.map": "/crewapp/static/css/1.ab310c56.chunk.css.map",
+  "static/css/main.96a622b8.chunk.css.map": "/crewapp/static/css/main.96a622b8.chunk.css.map",
   "index.html": "/crewapp/index.html",
   "precache-manifest.d584634078379d6ac610631d74a3bf06.js": "/crewapp/precache-manifest.d584634078379d6ac610631d74a3bf06.js",
   "service-worker.js": "/crewapp/service-worker.js"
