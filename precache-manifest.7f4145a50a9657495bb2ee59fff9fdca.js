@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/crewapp/static/media/fontawesome-webfont.af7ae505.woff2"
   },
   {
-    "revision": "092c56e380bc583d991f",
+    "revision": "bca430c5baba0ea859db",
     "url": "/crewapp/static/css/main.96a622b8.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = [
     "url": "/crewapp/static/js/runtime~main.70e1f85a.js"
   },
   {
-    "revision": "092c56e380bc583d991f",
-    "url": "/crewapp/static/js/main.092c56e3.chunk.js"
+    "revision": "bca430c5baba0ea859db",
+    "url": "/crewapp/static/js/main.bca430c5.chunk.js"
   },
   {
     "revision": "fee66e712a8a08eef5805a46892932ad",
@@ -40,7 +40,7 @@ self.__precacheManifest = [
     "url": "/crewapp/static/css/1.ab310c56.chunk.css"
   },
   {
-    "revision": "4bcd03cf9c37d291d17d911214ad0358",
+    "revision": "bcfa950e52490e64fa5f8009d66025f2",
     "url": "/crewapp/index.html"
   }
 ];
