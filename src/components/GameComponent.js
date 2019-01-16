@@ -64,9 +64,9 @@ class Game extends Component {
       );
     }
 
-    const answersCard = answers.map((answer) => {
+    const answersCard = answers.map((answer, index) => {
       return (
-        <Button outline block color="secondary" 
+        <Button key={index} outline block color="secondary" 
         onClick={() => {this.toggleNextQuestion(answer)}}>
           {answer}
         </Button>

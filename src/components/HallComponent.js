@@ -18,11 +18,11 @@ class FetchLeaders extends Component {
       .map((leader, index) => {
         if (index < 20) {
           return (
-            <tr>
+            <tr key={index}>
               <th scope="row">{index+1}</th>
               <td>{leader.name}</td>
               <td>{leader.score}</td>
-              <td>{(new Date(leader.date)).toLocaleDateString('en-GB')}</td>
+              <td>{leader.date}</td>
             </tr>
           );
         }
