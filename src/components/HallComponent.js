@@ -1,14 +1,47 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Table } from 'reactstrap';
-import { hall } from '../assets/halloffame';
+import { fetchLeaders } from '../firebase/actions';
 
-const Hall = () => (
-  <div>
-    <RenderTable />
-  </div>
-);
+class FetchLeaders extends Component {
 
-const RenderTable = () => {
+  constructor(props) {
+    super(props);
+    this.state = {
+      leaders: []
+    };
+  }
+
+  componentDidMount() {
+    fetchLeaders()
+    .then(data => {
+      let leaders = data.sort((a,b) => b.score - a.score)
+      .map((leader, index) => {
+        if (index < 20) {
+          return (
+            <tr>
+              <th scope="row">{index+1}</th>
+              <td>{leader.name}</td>
+              <td>{leader.score}</td>
+              <td>{(new Date(leader.date)).toLocaleDateString('en-GB')}</td>
+            </tr>
+          );
+        }
+      });
+      this.setState({ leaders: leaders });
+    });
+  }
+
+  render() {
+    return(
+      <tbody>
+        {this.state.leaders}
+      </tbody>
+    );
+  }
+
+}
+
+const Hall = () => {
   return (
     <Table>
       <thead>
@@ -19,25 +52,9 @@ const RenderTable = () => {
           <th>Date</th>
         </tr>
       </thead>
-      <tbody>
-        {players}
-      </tbody>
+      <FetchLeaders />
     </Table>
   );
 }
-
-const players = hall.sort((a,b) => b.score - a.score)
-.map((player, index) => {
-  if (index < 20) {
-    return (
-      <tr>
-        <th scope="row">{index+1}</th>
-        <td>{player.name}</td>
-        <td>{player.score}</td>
-        <td>{(new Date(player.date)).toLocaleDateString('en-GB')}</td>
-      </tr>
-    );
-  }
-});
 
 export default Hall;
