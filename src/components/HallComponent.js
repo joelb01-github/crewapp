@@ -1,60 +1,58 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Table } from 'reactstrap';
-import { fetchLeaders } from '../firebase/actions';
+import { Loading } from './LoadingComponent';
 
-class FetchLeaders extends Component {
+const RenderScores = ({ scores }) => {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      leaders: []
-    };
-  }
+  const scoresSorted = scores.sort((a,b) => b.score - a.score)
+  // eslint-disable-next-line
+  .map((score, index) => {
+    if (index < 20) {
+      return (
+        <tr key={index}>
+          <th scope="row">{index+1}</th>
+          <td>{score.name}</td>
+          <td>{score.score}</td>
+          <td>{score.date}</td>
+        </tr>
+      );
+    }
+  });
 
-  componentDidMount() {
-    fetchLeaders()
-    .then(data => {
-      let leaders = data.sort((a,b) => b.score - a.score)
-      .map((leader, index) => {
-        if (index < 20) {
-          return (
-            <tr key={index}>
-              <th scope="row">{index+1}</th>
-              <td>{leader.name}</td>
-              <td>{leader.score}</td>
-              <td>{leader.date}</td>
-            </tr>
-          );
-        }
-      });
-      this.setState({ leaders: leaders });
-    });
-  }
-
-  render() {
-    return(
-      <tbody>
-        {this.state.leaders}
-      </tbody>
-    );
-  }
+  return(
+    <tbody>
+      {scoresSorted}
+    </tbody>
+  );
 
 }
 
-const Hall = () => {
-  return (
-    <Table>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Crew Member</th>
-          <th>Score</th>
-          <th>Date</th>
-        </tr>
-      </thead>
-      <FetchLeaders />
-    </Table>
-  );
+const Hall = (props) => {
+  if (props.isLoading) {
+    return (
+      <Loading />
+    )
+  }
+  else if (props.errMess) {
+    return (
+      <h4>{props.errMess}</h4>
+    )
+  }
+  else {
+    return (
+      <Table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Crew Member</th>
+            <th>Score</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <RenderScores scores={props.scores} />
+      </Table>
+    );
+  }
 }
 
 export default Hall;
