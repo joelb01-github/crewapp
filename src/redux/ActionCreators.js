@@ -16,32 +16,38 @@ export const fetchScores = () => (dispatch) => {
   })
   .then(scores => dispatch(receiveScores(scores)))
   .catch(error => dispatch(failedScores(error.message)));
-}
+};
 
-export const requestScores = () => {
-  return {
-    type: ActionTypes.REQUEST_SCORES,
-    payload: null
-  }
-} 
+export const requestScores = () => ({
+  type: ActionTypes.REQUEST_SCORES,
+  payload: null
+});
 
-export const receiveScores = (scores) => {
-  return {
-    type: ActionTypes.RECEIVE_SCORES,
-    payload: scores
-  }
-}
+export const receiveScores = (scores) => ({
+  type: ActionTypes.RECEIVE_SCORES,
+  payload: scores
+});
 
-export const failedScores = (err) => {
-  return {
-    type: ActionTypes.FAILED_SCORE,
-    payload: err
-  }
-}
+export const failedScores = (err) => ({
+  type: ActionTypes.FAILED_SCORE,
+  payload: err
+});
 
-export const addScore = (newScore) => {
-  return {
-    type: ActionTypes.ADD_SCORE,
-    payload: newScore
-  }
-}
+export const addScore = (newScore) => (dispatch) => {
+
+  return database.ref('leaders').push()
+  .then(ref => {
+    return ref.set(newScore)
+    .then(() => ref.once("value"))
+    .then((score) => dispatch(addedScore(score.val())))
+    .catch(error => { 
+      console.log('Add new score failed ',error.message);
+      alert('Your score could not be added\nError: ' + error.message);
+    });
+  });
+};
+
+export const addedScore = (newScore) => ({
+  type: ActionTypes.ADDED_SCORE,
+  payload: newScore
+});

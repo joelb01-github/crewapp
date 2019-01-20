@@ -1,17 +1,19 @@
 import * as ActionTypes from './ActionTypes';
 
-export const scores = (state = {
+export const Scores = (state = {
   isLoading: true,
   errMsg: null,
   scores: []
 }, action) => {
   switch(action.type) {
     
-    case ActionTypes.ADD_SCORE:
+    case ActionTypes.ADDED_SCORE:
+      var score = action.payload;
       return {...state,
-        isLoading: false,
-        errMsg: null,
-        scores: [...scores, action.payload] 
+        // isLoading: false,
+        // errMsg: null,
+        // scores: [...state.scores, action.payload] 
+        scores: state.scores.concat(score)
       };
 
     case ActionTypes.RECEIVE_SCORES:
@@ -36,6 +38,6 @@ export const scores = (state = {
       };
 
     default:
-      return state
+      return state;
   }
 }

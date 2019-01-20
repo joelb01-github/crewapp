@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
 import { questions } from '../assets/questions';
-import Endgame from './EndgameComponent';
+import { Redirect } from 'react-router-dom';
 
 class Game extends Component {
 
@@ -84,10 +84,11 @@ class Game extends Component {
     }
     else {
       return (
-        <div className="container fluid">
-          <div className="row justify-content-center">
-            <Endgame points={this.state.points} />
-          </div>
+        <div>
+          <Redirect to={{
+            pathname: `/hall/game`, 
+            state: { points: this.state.points }
+          }} />
         </div>
       );
     }

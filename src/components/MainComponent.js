@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import { addScore, fetchScores } from '../redux/ActionCreators';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './HomeComponent';
 import Game from './GameComponent';
-import Hall from './HallComponent';
+import HallComponent from './HallComponent';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
@@ -29,14 +29,37 @@ class Main extends Component {
   }
 
   render() {
-    const HallPage = () => {
+
+    const HallPage = ({match, location}) => {
+      if(match.params.from === 'game') {
+        return (
+          <HallComponent 
+            addScore={this.props.addScore}
+            points={location.state.points}
+            fromGame={true}
+            scores={this.props.scores.scores} 
+            isLoading={this.props.scores.isLoading} 
+            errMess={this.props.scores.errMess} />
+        );
+      }
+      else {
+        return (
+          <HallComponent 
+            scores={this.props.scores.scores} 
+            isLoading={this.props.scores.isLoading} 
+            errMess={this.props.scores.errMess} 
+            fromGame={false}/>
+        );
+      }
+    };
+
+    const GamePage = () => {
       return (
-        <Hall 
-          scores = {this.props.scores.scores}
-          errMsg = {this.props.scores.errMsg}
-          isLoading = {this.props.scores.isLoading} />
+        <Game 
+          scores={this.props.scores} />
       );
     };
+
 
     return (
       <div>
@@ -44,8 +67,8 @@ class Main extends Component {
         <div>
           <Switch>
             <Route exact path="/crewapp" component={Home} />
-            <Route exact path="/hall" component={HallPage} />
-            <Route exact path="/game" component={Game} />
+            <Route exact path="/hall/:from" component={HallPage} />
+            <Route exact path="/game" component={GamePage} />
             <Redirect to="/crewapp" />
           </Switch>
         </div>
@@ -56,4 +79,4 @@ class Main extends Component {
 
 }
 
-export default connect(mapStateToProps, mapDispactchToProps)(Main);
+export default withRouter(connect(mapStateToProps, mapDispactchToProps)(Main));

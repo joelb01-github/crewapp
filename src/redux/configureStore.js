@@ -1,17 +1,22 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux';
-import { comments } from './commentReducer';
-import { scores } from './scoreReducer';
-import thunkMiddleware from 'redux-thunk';
-import loggerMiddleware from 'redux-logger';
+import { Comments } from './commentReducer';
+import { Scores } from './scoreReducer';
+// import thunkMiddleware from 'redux-thunk';
+// import loggerMiddleware from 'redux-logger';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 
 export const configureStore = () => {
 
   const combinedReducers = combineReducers({
-    scores: scores,
-    comments: comments
+    scores: Scores,
+    comments: Comments
   });
-  
-  return createStore(
+
+  const store = createStore(
     combinedReducers, 
-    applyMiddleware(thunkMiddleware, loggerMiddleware));
+    // applyMiddleware(thunkMiddleware, loggerMiddleware));
+    applyMiddleware(thunk, logger));
+
+  return store;
 };

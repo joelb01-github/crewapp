@@ -1,4 +1,4 @@
-export const ADD_SCORE = 'ADD_SCORE';
+export const ADDED_SCORE = 'ADDED_SCORE';
 export const REQUEST_SCORES = 'REQUEST_SCORES';
 export const FAILED_SCORE = 'FAILED_SCORE';
 export const RECEIVE_SCORES = 'RECEIVE_SCORES';

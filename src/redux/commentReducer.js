@@ -1,6 +1,6 @@
 import * as ActionTypes from './ActionTypes';
 
-export const comments = (state = {
+export const Comments = (state = {
   isLoading: true,
   errMsg: null,
   comments: []
@@ -11,7 +11,7 @@ export const comments = (state = {
       return {...state,
         isLoading: false,
         errMsg: null,
-        comments: [...comments, action.payload] 
+        comments: [...state.comments, action.payload] 
       };
 
     case ActionTypes.RECEIVE_COMMENTS:
@@ -36,6 +36,6 @@ export const comments = (state = {
       };
 
     default:
-      return state
+      return state;
   }
 }

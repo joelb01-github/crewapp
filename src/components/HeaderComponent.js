@@ -31,7 +31,7 @@ class Header extends Component {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="nav-link" to="/hall">
+                <NavLink className="nav-link" to={`/hall/link`}>
                   <span className="fa fa-trophy fa-lg"></span> Hall of Fame
                 </NavLink>
               </NavItem>
