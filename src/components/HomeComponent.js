@@ -13,7 +13,9 @@ const Home = () => (
       <p>1 bonne r&eacute;ponse = 1 point</p>
       <p>1 mauvaise r&eacute;ponse = - 0.5 point</p>
       <p className="lead">
-        <Link to='/game'><Button color="primary">GO</Button></Link>
+        <Link to='/game'>
+          <Button color="primary">GO</Button>
+        </Link>
       </p>
     </Jumbotron>
   </div>

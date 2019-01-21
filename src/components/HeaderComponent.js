@@ -31,7 +31,13 @@ class Header extends Component {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="nav-link" to={`/hall/link`}>
+                <NavLink className="nav-link" to={{
+                  pathname: `/hall/link`,
+                  state: { 
+                    points: null,
+                    fromGame: false
+                  }
+                }}>
                   <span className="fa fa-trophy fa-lg"></span> Hall of Fame
                 </NavLink>
               </NavItem>

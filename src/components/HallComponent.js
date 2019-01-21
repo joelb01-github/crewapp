@@ -32,6 +32,13 @@ class ScoreForm extends Component {
     });
   }
 
+  componentWillMount() { console.log('mounting') };
+  componentDidMount() { console.log('mounted') };
+  componentWillReceiveProps() { console.log('will receive props') };
+  componentWillUpdate() { console.log('will update') };
+  componentDidUpdate() { console.log('did update') };
+  componentWillUnmount() { console.log('unmounting') };
+
   render() {
     return(
       <>
@@ -64,7 +71,7 @@ const RenderScores = (props) => {
   .map((score, index) => {
     if (index < 20) {
       return (
-        <tr key={index}>
+        <tr key={score.id}>
           <th scope="row">{index+1}</th>
           <td>{score.name}</td>
           <td>{score.score}</td>

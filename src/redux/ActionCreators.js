@@ -10,7 +10,9 @@ export const fetchScores = () => (dispatch) => {
   .then(snapshot => {
     let scores = [];
     snapshot.forEach((childSnapshot) => {
-      scores.push(childSnapshot.val());
+      let score = childSnapshot.val();
+      score.id = childSnapshot.key;
+      scores.push(score);
     });
     return scores;
   })
@@ -39,7 +41,11 @@ export const addScore = (newScore) => (dispatch) => {
   .then(ref => {
     return ref.set(newScore)
     .then(() => ref.once("value"))
-    .then((score) => dispatch(addedScore(score.val())))
+    .then((newScore) => {
+      let score = newScore.val();
+      score.id = newScore.key;
+      return dispatch(addedScore(score));
+    })
     .catch(error => { 
       console.log('Add new score failed ',error.message);
       alert('Your score could not be added\nError: ' + error.message);

@@ -30,27 +30,16 @@ class Main extends Component {
 
   render() {
 
-    const HallPage = ({match, location}) => {
-      if(match.params.from === 'game') {
-        return (
-          <HallComponent 
-            addScore={this.props.addScore}
-            points={location.state.points}
-            fromGame={true}
-            scores={this.props.scores.scores} 
-            isLoading={this.props.scores.isLoading} 
-            errMess={this.props.scores.errMess} />
-        );
-      }
-      else {
-        return (
-          <HallComponent 
-            scores={this.props.scores.scores} 
-            isLoading={this.props.scores.isLoading} 
-            errMess={this.props.scores.errMess} 
-            fromGame={false}/>
-        );
-      }
+    const HallPage = ({location}) => {
+      return (
+        <HallComponent 
+          addScore={this.props.addScore}
+          points={location.state.points}
+          fromGame={location.state.fromGame}
+          scores={this.props.scores.scores} 
+          isLoading={this.props.scores.isLoading} 
+          errMess={this.props.scores.errMess} />
+      );
     };
 
     const GamePage = () => {

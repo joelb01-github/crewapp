@@ -66,6 +66,7 @@ class Game extends Component {
 
     const answersCard = answers.map((answer, index) => {
       return (
+        // TODO: change this key to something else than index e.g. create a unique id for each question
         <Button key={index} outline block color="secondary" 
         onClick={() => {this.toggleNextQuestion(answer)}}>
           {answer}
@@ -87,7 +88,10 @@ class Game extends Component {
         <div>
           <Redirect to={{
             pathname: `/hall/game`, 
-            state: { points: this.state.points }
+            state: { 
+              points: this.state.points,
+              fromGame: true
+            }
           }} />
         </div>
       );
