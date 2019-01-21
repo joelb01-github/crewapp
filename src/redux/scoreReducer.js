@@ -8,12 +8,10 @@ export const Scores = (state = {
   switch(action.type) {
     
     case ActionTypes.ADDED_SCORE:
-      var score = action.payload;
       return {...state,
-        // isLoading: false,
-        // errMsg: null,
-        // scores: [...state.scores, action.payload] 
-        scores: state.scores.concat(score)
+        isLoading: false,
+        errMsg: null,
+        scores: [...state.scores, action.payload] 
       };
 
     case ActionTypes.RECEIVE_SCORES:

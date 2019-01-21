@@ -3,6 +3,68 @@ import { Table, Modal, ModalHeader, ModalBody, Row, Button, Label } from 'reacts
 import { Loading } from './LoadingComponent';
 import { Error } from './ErrorComponent';
 import { LocalForm, Control } from 'react-redux-form';
+import { connect } from 'react-redux';
+import { addScore } from '../redux/ActionCreators';
+
+const mapStateToProps = state => ({ scores: state.scores });
+
+const mapDispactchToProps = dispatch => {
+  return {
+    addScore: (newScore) => { dispatch(addScore(newScore)) }
+  };
+}
+
+class HallComponent extends Component {
+
+  render() {
+    return(
+      <>
+        <Table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Crew Member</th>
+              <th>Score</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ScoresSorted scores={this.props.scores} />
+          </tbody>
+        </Table>
+        <div>
+          <ScoreForm 
+            scores={this.props.scores}
+            points={this.props.points}
+            fromGame={this.props.fromGame}
+            addScore={this.props.addScore} />
+        </div>
+      </>
+    );
+  }
+
+}
+
+const ScoresSorted = (props) => {
+  if (props.scores.isLoading) { return ( <Loading /> ); }
+  else if (props.scores.errMess) { return ( <Error errMess={props.scores.errMess} /> ); }
+  else {
+    return props.scores.scores.sort((a,b) => b.score - a.score)
+    // eslint-disable-next-line
+    .map((score, index) => {
+      if (index < 20) {
+        return (
+          <tr key={score.id}>
+            <th scope="row">{index+1}</th>
+            <td>{score.name}</td>
+            <td>{score.score}</td>
+            <td>{score.date}</td>
+          </tr>
+        );
+      }
+    });
+  }
+}
 
 class ScoreForm extends Component {
 
@@ -32,13 +94,6 @@ class ScoreForm extends Component {
     });
   }
 
-  componentWillMount() { console.log('mounting') };
-  componentDidMount() { console.log('mounted') };
-  componentWillReceiveProps() { console.log('will receive props') };
-  componentWillUpdate() { console.log('will update') };
-  componentDidUpdate() { console.log('did update') };
-  componentWillUnmount() { console.log('unmounting') };
-
   render() {
     return(
       <>
@@ -64,82 +119,4 @@ class ScoreForm extends Component {
 
 }
 
-const RenderScores = (props) => {
-
-  const scoresSorted = props.scores.sort((a,b) => b.score - a.score)
-  // eslint-disable-next-line
-  .map((score, index) => {
-    if (index < 20) {
-      return (
-        <tr key={score.id}>
-          <th scope="row">{index+1}</th>
-          <td>{score.name}</td>
-          <td>{score.score}</td>
-          <td>{score.date}</td>
-        </tr>
-      );
-    }
-  });
-
-  return(
-    <>
-      <Table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Crew Member</th>
-            <th>Score</th>
-            <th>Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          {scoresSorted}
-        </tbody>
-      </Table>
-      <div>
-        <ScoreForm 
-          points={props.points}
-          addScore = {props.addScore} 
-          fromGame={props.fromGame} />
-        </div>
-    </>
-  );
-
-}
-
-const HallComponent = (props) => {
-  if (props.isLoading) { return ( <Loading /> ); }
-  else if (props.errMess) { return ( <Error errMess={props.errMess} /> ); }
-  else {
-    if (props.fromGame) {
-      return (
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <RenderScores 
-                points={props.points}
-                addScore={props.addScore} 
-                scores={props.scores}
-                fromGame={props.fromGame} /> 
-            </div>
-          </div>
-        </div>
-      ); 
-    }
-    else {
-      return (
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <RenderScores 
-                scores={props.scores}
-                fromGame={props.fromGame} /> 
-            </div>
-          </div>
-        </div>
-      ); 
-    }
-  }
-}
-
-export default HallComponent;
+export default connect(mapStateToProps, mapDispactchToProps)(HallComponent);
