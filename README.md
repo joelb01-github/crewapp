@@ -1,4 +1,14 @@
+# Picture Quiz
+
+This web app is a picture quiz where the player needs to  answer several multiple-choice questions.
+
+You can find the current version at [this link](https://joelb01-github.github.io/crewapp/).
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Authors
+
+Joel Barenco
 
 ## Available Scripts
 
@@ -66,3 +76,8 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+## License
+
+This project is licensed under the [MIT](https://choosealicense.com/licenses/mit/) license.
+See also the [LICENSE.md](LICENSE.md) file for details
